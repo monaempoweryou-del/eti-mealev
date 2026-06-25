@@ -63,14 +63,14 @@
       --warm-white:   #faf8f4;
       --page-bg:      #ffffff;
       --section-alt:  #f9f7f4;
-      --gold:         #b8975a;
-      --gold-light:   #d4b07a;
-      --gold-dark:    #8a6e3a;
+      --gold:         #1a1a1a;
+      --gold-light:   #444444;
+      --gold-dark:    #1a1a1a;
       --stone:        #6b6258;
       --stone-light:  #8a8078;
       --border-light: rgba(28,28,28,0.1);
       --border-dark:  rgba(245,240,232,0.08);
-      --border-gold:  rgba(184,151,90,0.25);
+      --border-gold:  rgba(28,28,28,0.12);
       --heading-font: 'Frank Ruhl Libre', 'Times New Roman', serif;
       --body-font:    'Assistant', 'Arial', sans-serif;
       --header-h:     76px;
@@ -259,8 +259,8 @@
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.06em;
-      color: var(--charcoal);
-      background: var(--gold);
+      color: #ffffff;
+      background: var(--charcoal);
       border-radius: 0;
       transition: background var(--transition), transform var(--transition);
     }
@@ -361,8 +361,8 @@
       justify-content: center;
       margin-top: 40px;
       padding: 16px 36px;
-      background: var(--gold);
-      color: var(--charcoal);
+      background: var(--charcoal);
+      color: #ffffff;
       font-family: var(--body-font);
       font-weight: 600;
       font-size: 0.9rem;
@@ -437,7 +437,7 @@
       display: block;
       width: 40px;
       height: 1px;
-      background: var(--gold);
+      background: rgba(255,255,255,0.5);
     }
     .hero-eyebrow-text {
       font-family: var(--body-font);
@@ -445,7 +445,7 @@
       font-weight: 300;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: rgba(255,255,255,0.75);
     }
 
     .hero-title {
@@ -489,8 +489,8 @@
       align-items: center;
       gap: 10px;
       padding: 15px 36px;
-      background: var(--gold);
-      color: var(--charcoal);
+      background: var(--charcoal);
+      color: #ffffff;
       font-family: var(--body-font);
       font-size: 0.88rem;
       font-weight: 600;
@@ -538,7 +538,7 @@
     .scroll-line {
       width: 1px;
       height: 44px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
       animation: scroll-drop 2.2s ease-in-out infinite;
     }
     @keyframes scroll-drop {
@@ -788,7 +788,7 @@
       font-size: 0.72rem;
       font-weight: 300;
       letter-spacing: 0.15em;
-      color: var(--gold);
+      color: rgba(255,255,255,0.65);
       text-transform: uppercase;
     }
 
@@ -892,7 +892,7 @@
       background: var(--charcoal);
     }
     .package-card.featured .package-name { color: var(--off-white); }
-    .package-card.featured .package-tier { color: var(--gold); }
+    .package-card.featured .package-tier { color: rgba(255,255,255,0.5); }
     .package-card.featured .package-feature { color: var(--stone-light); }
     .package-card.featured .package-cta { border-top-color: var(--border-dark); }
     .package-card.featured::before {
@@ -900,7 +900,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      background: var(--gold);
+      background: #ffffff;
       color: var(--charcoal);
       font-family: var(--body-font);
       font-size: 0.65rem;
@@ -1320,7 +1320,7 @@
       color: var(--stone-light);
       transition: color var(--transition);
     }
-    .footer-col ul a:hover { color: var(--gold); }
+    .footer-col ul a:hover { color: #ffffff; }
 
     .footer-bottom {
       display: flex;
@@ -1345,7 +1345,7 @@
       color: var(--stone);
       opacity: 0.65;
     }
-    .footer-unveiled a { color: var(--gold); opacity: 1; }
+    .footer-unveiled a { color: rgba(255,255,255,0.7); opacity: 1; }
 
     /* ═══════════════════════════════════════════════════
        MOBILE CTA BAR
