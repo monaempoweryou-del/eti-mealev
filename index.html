@@ -394,7 +394,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 30%;
       display: block;
     }
     .hero-bg::after {
@@ -505,15 +505,31 @@
     .btn-ghost-link {
       font-family: var(--body-font);
       font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--stone-light);
-      letter-spacing: 0.06em;
+      font-weight: 500;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.65);
+      padding: 15px 36px;
+      letter-spacing: 0.08em;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: color var(--transition);
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
     }
-    .btn-ghost-link:hover { color: var(--off-white); }
+    .btn-ghost-link:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.9);
+    }
+    /* On light backgrounds (about section etc.) ghost links become dark-outlined */
+    .about-text .btn-ghost-link,
+    section:not(#hero) .btn-ghost-link {
+      color: var(--charcoal);
+      border-color: rgba(28,28,28,0.55);
+    }
+    section:not(#hero) .btn-ghost-link:hover {
+      background: var(--charcoal);
+      color: #ffffff;
+      border-color: var(--charcoal);
+    }
 
     /* Scroll indicator */
     .hero-scroll-indicator {
@@ -1446,7 +1462,7 @@
   ════════════════════════════════════════ -->
   <section id="hero" aria-label="כותרת ראשית">
     <div class="hero-bg">
-      <img src="assets/hero-main.jpg" alt="אדריכלות יוקרה" loading="eager" fetchpriority="high" />
+      <img src="assets/IMG_9907.jpg" alt="אדריכלות יוקרה" loading="eager" fetchpriority="high" />
     </div>
 
     <div class="container hero-inner">
@@ -1542,7 +1558,7 @@
         </div>
 
         <div class="about-visual scale-in">
-          <img src="assets/facade-stone.jpg" alt="אתי מהלב - אדריכלות ועיצוב פנים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <img src="assets/IMG_9906.jpg" alt="אתי מהלב - אדריכלות ועיצוב פנים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
         </div>
 
       </div>
@@ -1564,7 +1580,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט קיסריה">
         <div class="project-placeholder proj-1">
-          <img src="assets/living-room-luxury.jpg" alt="פרויקט קיסריה - סלון יוקרה" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9905.jpg" alt="פרויקט קיסריה - מטבח יוקרה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט קיסריה</h3>
@@ -1574,7 +1590,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט גבעת הרקפות">
         <div class="project-placeholder proj-2">
-          <img src="assets/bedroom-suite.jpg" alt="פרויקט גבעת הרקפות - חדר שינה" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9904.jpg" alt="פרויקט גבעת הרקפות - אמבטיה יוקרה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט גבעת הרקפות</h3>
@@ -1584,7 +1600,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט מרואה חיפה">
         <div class="project-placeholder proj-3">
-          <img src="assets/kitchen-modern.jpg" alt="פרויקט מרואה - מטבח מודרני" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9908.jpg" alt="פרויקט מרואה - מטבח מודרני" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט מרואה</h3>
@@ -1594,7 +1610,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט חנה ומיכה">
         <div class="project-placeholder proj-4">
-          <img src="assets/dining-room.jpg" alt="פרויקט חנה ומיכה - חדר אוכל" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9907.jpg" alt="פרויקט חנה ומיכה - מטבח יוקרה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט חנה ומיכה</h3>
@@ -1604,7 +1620,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט לינה">
         <div class="project-placeholder proj-5">
-          <img src="assets/villa-terrace.jpg" alt="פרויקט לינה - גג ומרפסת" loading="lazy" class="project-img" />
+          <img src="assets/lounge-dark.jpg" alt="פרויקט לינה - סלון" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט לינה</h3>
@@ -1624,7 +1640,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="שיתוף פעולה Abita Kitchens">
         <div class="project-placeholder proj-7">
-          <img src="assets/bathroom-spa.jpg" alt="Abita Kitchens - עיצוב אמבטיה" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9906.jpg" alt="Abita Kitchens - אמבטיה יוקרה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">Abita Kitchens × אתי מהלב</h3>
@@ -1634,7 +1650,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט אחסון חכם">
         <div class="project-placeholder proj-8">
-          <img src="assets/detail-staircase.jpg" alt="פרויקט אחסון חכם - מדרגות" loading="lazy" class="project-img" />
+          <img src="assets/IMG_9910.jpg" alt="פרויקט אחסון חכם - מטבח" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">אחסון חכם</h3>
@@ -1644,7 +1660,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט סלון">
         <div class="project-placeholder proj-9">
-          <img src="assets/open-lounge.jpg" alt="פרויקט חיפה - סלון" loading="lazy" class="project-img" />
+          <img src="assets/facade-stone.jpg" alt="פרויקט חיפה - חזית" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט חיפה</h3>
@@ -1705,7 +1721,7 @@
 
   <!-- Photo Break -->
   <div class="photo-break" aria-hidden="true">
-    <img src="assets/open-lounge.jpg" alt="" loading="lazy" />
+    <img src="assets/IMG_9904.jpg" alt="" loading="lazy" />
     <span class="photo-break-caption">עיצוב פנים · חיפה</span>
   </div>
 
@@ -1857,7 +1873,7 @@
         </div>
 
         <div class="edne-visual scale-in">
-          <img src="assets/exterior-villa.jpg" alt="EDNE Group - עיצוב יוקרה בינלאומי" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <img src="assets/lounge-dark.jpg" alt="EDNE Group - עיצוב יוקרה בינלאומי" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
         </div>
 
       </div>
@@ -2061,9 +2077,10 @@
     // ─── Reduced Motion ───
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ─── Lenis Smooth Scroll ───
+    // ─── Lenis Smooth Scroll (desktop only — mobile uses native scroll) ───
     let lenis;
-    if (!prefersReduced) {
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    if (!prefersReduced && isDesktop) {
       lenis = new Lenis({
         duration: 1.15,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
