@@ -1018,6 +1018,57 @@
       overflow: hidden;
     }
 
+    /* ── Stats Strip ── */
+    .stats-strip {
+      background: var(--charcoal);
+      color: #ffffff;
+      padding: clamp(40px, 6vw, 70px) 0;
+    }
+    .stats-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 60px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      flex: 1;
+    }
+    .stat-number {
+      font-family: var(--heading-font);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1;
+      color: #ffffff;
+      display: inline;
+    }
+    .stat-suffix {
+      font-family: var(--heading-font);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .stat-label {
+      font-family: var(--body-font);
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.15);
+      flex-shrink: 0;
+    }
+
     /* Full-width photo break */
     .photo-break {
       width: 100%;
@@ -1481,6 +1532,28 @@
 
     </div>
   </section>
+
+  <!-- ════════════════════════════════════════
+       STATS STRIP
+  ════════════════════════════════════════ -->
+  <div class="stats-strip" id="stats-strip" aria-label="נתונים על הפרויקטים שלנו">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-number" data-target="15">0</span><span class="stat-suffix" dir="ltr">+</span>
+        <p class="stat-label">שנות ניסיון</p>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="200">0</span><span class="stat-suffix" dir="ltr">+</span>
+        <p class="stat-label">פרויקטים שהושלמו</p>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="98">0</span><span class="stat-suffix" dir="ltr">%</span>
+        <p class="stat-label">לקוחות ממליצים</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ════════════════════════════════════════
        ABOUT
@@ -2237,6 +2310,33 @@
 
     // ─── ScrollTrigger refresh after fonts ───
     document.fonts.ready.then(() => ScrollTrigger.refresh());
+
+    // ─── Animated counters ───
+    const counters = document.querySelectorAll('.stat-number');
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1800;
+      const start = performance.now();
+      const tick = (now) => {
+        const elapsed = Math.min(now - start, duration);
+        const value = Math.round(easeOut(elapsed / duration) * target);
+        el.textContent = value;
+        if (elapsed < duration) requestAnimationFrame(tick);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(tick);
+    };
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          counters.forEach(animateCounter);
+          statsObs.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    const strip = document.getElementById('stats-strip');
+    if (strip) statsObs.observe(strip);
 
   </script>
 
