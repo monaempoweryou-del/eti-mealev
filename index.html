@@ -1539,7 +1539,7 @@
   <div class="stats-strip" id="stats-strip" aria-label="נתונים על הפרויקטים שלנו">
     <div class="stats-inner">
       <div class="stat-item">
-        <span class="stat-number" data-target="15">0</span><span class="stat-suffix" dir="ltr">+</span>
+        <span class="stat-number" data-target="25">0</span><span class="stat-suffix" dir="ltr">+</span>
         <p class="stat-label">שנות ניסיון</p>
       </div>
       <div class="stat-divider" aria-hidden="true"></div>
@@ -2198,90 +2198,45 @@
     navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-    // ─── Hero Animations ───
-    if (!prefersReduced) {
-      const heroTl = gsap.timeline({ delay: 0.3 });
-
-      heroTl.fromTo('#hero-eyebrow',
-        { opacity: 0, x: 30 },
-        { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }
-      );
-      heroTl.fromTo('#hero-title',
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' },
-        '-=0.4'
-      );
-      heroTl.fromTo('#hero-sub',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-        '-=0.4'
-      );
-      heroTl.fromTo('#hero-cta',
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
-        '-=0.35'
-      );
-    } else {
+    // ─── Hero + Scroll Animations (desktop only — mobile gets instant visibility) ───
+    const showHeroInstant = () => {
       ['#hero-eyebrow','#hero-title','#hero-sub','#hero-cta'].forEach(sel => {
         const el = document.querySelector(sel);
         if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
       });
-    }
+      document.querySelectorAll('.fade-up, .scale-in, .clip-reveal').forEach(el => el.classList.add('visible'));
+    };
 
-    // ─── Scroll Entrance Animations ───
-    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+    if (!prefersReduced && isDesktop) {
+      const heroTl = gsap.timeline({ delay: 0.3 });
+      heroTl.fromTo('#hero-eyebrow', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' });
+      heroTl.fromTo('#hero-title',   { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.4');
+      heroTl.fromTo('#hero-sub',     { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
+      heroTl.fromTo('#hero-cta',     { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.35');
 
-    if (!prefersReduced) {
-      // IntersectionObserver for .fade-up and .scale-in
+      const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
       const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry, idx) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Stagger sibling cards
             const siblings = entry.target.parentElement
               ? Array.from(entry.target.parentElement.children).filter(c => c.classList.contains(entry.target.classList[0]))
               : [];
             const delay = siblings.indexOf(entry.target) * 0.1;
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, delay * 1000);
+            setTimeout(() => entry.target.classList.add('visible'), delay * 1000);
             io.unobserve(entry.target);
           }
         });
       }, observerOptions);
-
       document.querySelectorAll('.fade-up, .scale-in, .clip-reveal').forEach(el => io.observe(el));
 
-      // Hero parallax
-      gsap.to('.hero-texture', {
-        scrollTrigger: {
-          trigger: '#hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true
-        },
-        y: '20%',
-        ease: 'none'
-      });
-
-      // Project card image scale parallax
       document.querySelectorAll('.project-placeholder').forEach(el => {
         gsap.from(el, {
-          scrollTrigger: {
-            trigger: el.closest('.project-card'),
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          },
-          scale: 0.97,
-          opacity: 0,
-          duration: 0.9,
-          ease: 'power3.out'
+          scrollTrigger: { trigger: el.closest('.project-card'), start: 'top 85%', toggleActions: 'play none none none' },
+          scale: 0.97, opacity: 0, duration: 0.9, ease: 'power3.out'
         });
       });
-
     } else {
-      document.querySelectorAll('.fade-up, .scale-in, .clip-reveal').forEach(el => {
-        el.classList.add('visible');
-      });
+      showHeroInstant();
     }
 
     // ─── Mobile CTA bar hide at footer ───
