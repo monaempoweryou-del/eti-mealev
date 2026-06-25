@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>עתי מאלב | אדריכלות ועיצוב פנים | חיפה</title>
-  <meta name="description" content="עתי מאלב: אדריכלות ועיצוב פנים בחיפה והסביבה. שותפת ישראלית של EDNE Group. תכנון מדויק, חומרים נבחרים, ביצוע ללא פשרות." />
+  <title>אתי מהלב | אדריכלות ועיצוב פנים | חיפה</title>
+  <meta name="description" content="אתי מהלב: אדריכלות ועיצוב פנים בחיפה והסביבה. שותפת ישראלית של EDNE Group. תכנון מדויק, חומרים נבחרים, ביצוע ללא פשרות." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="he_IL" />
   <meta property="og:url" content="https://etimealev.co.il/" />
-  <meta property="og:title" content="עתי מאלב | אדריכלות ועיצוב פנים | חיפה" />
-  <meta property="og:description" content="עתי מאלב: אדריכלות ועיצוב פנים בחיפה והסביבה. תכנון מדויק, חומרים נבחרים, ביצוע ללא פשרות." />
+  <meta property="og:title" content="אתי מהלב | אדריכלות ועיצוב פנים | חיפה" />
+  <meta property="og:description" content="אתי מהלב: אדריכלות ועיצוב פנים בחיפה והסביבה. תכנון מדויק, חומרים נבחרים, ביצוע ללא פשרות." />
   <meta property="og:image" content="assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="עתי מאלב | אדריכלות ועיצוב פנים" />
+  <meta name="twitter:title" content="אתי מהלב | אדריכלות ועיצוב פנים" />
   <meta name="twitter:description" content="אדריכלות ועיצוב פנים מדויק בחיפה והסביבה." />
 
   <!-- JSON-LD -->
@@ -23,7 +23,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ArchitectureFirm",
-    "name": "עתי מאלב אדריכלות ועיצוב פנים",
+    "name": "אתי מהלב אדריכלות ועיצוב פנים",
     "alternateName": "Eti Mealev Architecture & Interior Design",
     "description": "אדריכלות ועיצוב פנים בחיפה והסביבה. תכנון מדויק, חומרים נבחרים, ביצוע ללא פשרות.",
     "url": "https://etimealev.co.il",
@@ -36,7 +36,7 @@
     "areaServed": ["חיפה", "קיסריה", "גבעת הרקפות", "הצפון"],
     "founder": {
       "@type": "Person",
-      "name": "עתי מאלב",
+      "name": "אתי מהלב",
       "alumniOf": "הטכניון, מכון טכנולוגי לישראל"
     },
     "sameAs": [
@@ -61,13 +61,16 @@
       --warm-dark:    #201e1a;
       --off-white:    #f5f0e8;
       --warm-white:   #faf8f4;
+      --page-bg:      #ffffff;
+      --section-alt:  #f9f7f4;
       --gold:         #b8975a;
       --gold-light:   #d4b07a;
       --gold-dark:    #8a6e3a;
-      --stone:        #7a7060;
-      --stone-light:  #a09888;
+      --stone:        #6b6258;
+      --stone-light:  #8a8078;
+      --border-light: rgba(28,28,28,0.1);
       --border-dark:  rgba(245,240,232,0.08);
-      --border-gold:  rgba(184,151,90,0.2);
+      --border-gold:  rgba(184,151,90,0.25);
       --heading-font: 'Frank Ruhl Libre', 'Times New Roman', serif;
       --body-font:    'Assistant', 'Arial', sans-serif;
       --header-h:     76px;
@@ -84,8 +87,8 @@
     }
     body {
       font-family: var(--body-font);
-      background: var(--charcoal);
-      color: var(--off-white);
+      background: var(--page-bg);
+      color: var(--charcoal);
       line-height: 1.9;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -183,10 +186,10 @@
       transition: background var(--transition), backdrop-filter var(--transition);
     }
     #site-header.scrolled {
-      background: rgba(20, 20, 20, 0.92);
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-light);
     }
     .header-inner {
       display: flex;
@@ -206,7 +209,7 @@
       font-family: var(--heading-font);
       font-size: 1.35rem;
       font-weight: 700;
-      color: var(--off-white);
+      color: var(--charcoal);
       letter-spacing: 0.02em;
       line-height: 1.1;
     }
@@ -230,7 +233,7 @@
       font-family: var(--body-font);
       font-size: 0.875rem;
       font-weight: 400;
-      color: var(--stone-light);
+      color: var(--stone);
       letter-spacing: 0.05em;
       transition: color var(--transition);
       position: relative;
@@ -245,7 +248,7 @@
       background: var(--gold);
       transition: width var(--transition);
     }
-    .nav-links a:hover { color: var(--off-white); }
+    .nav-links a:hover { color: var(--charcoal); }
     .nav-links a:hover::after { width: 100%; }
 
     /* Header CTA */
@@ -283,7 +286,7 @@
       display: block;
       width: 26px;
       height: 1.5px;
-      background: var(--off-white);
+      background: var(--charcoal);
       transition: transform 0.4s ease, opacity 0.3s ease;
       transform-origin: center;
     }
@@ -548,7 +551,7 @@
        ABOUT SECTION
     ═══════════════════════════════════════════════════ */
     #about {
-      background: var(--warm-white);
+      background: var(--section-alt);
       color: var(--charcoal);
       padding: clamp(80px, 10vw, 140px) 0;
     }
@@ -683,14 +686,14 @@
        PROJECTS SECTION
     ═══════════════════════════════════════════════════ */
     #projects {
-      background: var(--charcoal);
+      background: var(--page-bg);
       padding: clamp(80px, 10vw, 140px) 0;
     }
     .section-head {
       margin-bottom: clamp(48px, 6vw, 72px);
     }
     .section-head h2 {
-      color: var(--off-white);
+      color: var(--charcoal);
     }
 
     /* Editorial project grid */
@@ -793,7 +796,7 @@
        SERVICES SECTION
     ═══════════════════════════════════════════════════ */
     #services {
-      background: var(--warm-white);
+      background: var(--page-bg);
       color: var(--charcoal);
       padding: clamp(80px, 10vw, 140px) 0;
     }
@@ -811,15 +814,15 @@
 
     .service-card {
       padding: clamp(40px, 5vw, 64px) clamp(28px, 4vw, 48px);
-      background: var(--warm-white);
-      border: 1px solid rgba(122,112,96,0.12);
+      background: var(--page-bg);
+      border: 1px solid var(--border-light);
       display: flex;
       flex-direction: column;
       gap: 20px;
       transition: background var(--transition), transform var(--transition);
     }
     .service-card:hover {
-      background: #fff;
+      background: var(--section-alt);
       transform: translateY(-4px);
     }
     .service-number {
@@ -853,7 +856,7 @@
        PACKAGES SECTION
     ═══════════════════════════════════════════════════ */
     #packages {
-      background: var(--charcoal);
+      background: var(--section-alt);
       padding: clamp(80px, 10vw, 140px) 0;
     }
     .packages-intro {
@@ -861,7 +864,7 @@
       margin-bottom: clamp(52px, 7vw, 80px);
     }
     .packages-intro p {
-      color: var(--stone-light);
+      color: var(--stone);
       margin-top: 1.25rem;
     }
 
@@ -869,14 +872,14 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 1px;
-      background: var(--border-dark);
+      background: var(--border-light);
     }
     @media (min-width: 768px) {
       .packages-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     .package-card {
-      background: var(--charcoal);
+      background: #ffffff;
       padding: clamp(40px, 5vw, 60px) clamp(28px, 4vw, 44px);
       display: flex;
       flex-direction: column;
@@ -884,10 +887,14 @@
       transition: background var(--transition);
       position: relative;
     }
-    .package-card:hover { background: var(--warm-dark); }
+    .package-card:hover { background: var(--section-alt); }
     .package-card.featured {
-      background: var(--warm-dark);
+      background: var(--charcoal);
     }
+    .package-card.featured .package-name { color: var(--off-white); }
+    .package-card.featured .package-tier { color: var(--gold); }
+    .package-card.featured .package-feature { color: var(--stone-light); }
+    .package-card.featured .package-cta { border-top-color: var(--border-dark); }
     .package-card.featured::before {
       content: 'מומלץ';
       position: absolute;
@@ -913,7 +920,7 @@
       font-family: var(--heading-font);
       font-size: clamp(1.6rem, 2.5vw, 2.2rem);
       font-weight: 400;
-      color: var(--off-white);
+      color: var(--charcoal);
       line-height: 1.15;
     }
     .package-line {
@@ -933,7 +940,7 @@
       font-family: var(--body-font);
       font-size: 0.9rem;
       font-weight: 300;
-      color: var(--stone-light);
+      color: var(--stone);
       line-height: 1.6;
     }
     .package-feature-dot {
@@ -947,7 +954,7 @@
     .package-cta {
       margin-top: auto;
       padding-top: 24px;
-      border-top: 1px solid var(--border-dark);
+      border-top: 1px solid var(--border-light);
       font-family: var(--body-font);
       font-size: 0.8rem;
       font-weight: 600;
@@ -964,7 +971,7 @@
        EDNE COLLABORATION SECTION
     ═══════════════════════════════════════════════════ */
     #edne {
-      background: var(--warm-white);
+      background: var(--section-alt);
       color: var(--charcoal);
       padding: clamp(80px, 10vw, 140px) 0;
       overflow: hidden;
@@ -1039,20 +1046,20 @@
        CURATED PICKS SECTION
     ═══════════════════════════════════════════════════ */
     #curated {
-      background: var(--charcoal);
+      background: var(--page-bg);
       padding: clamp(80px, 10vw, 140px) 0;
     }
     .curated-intro {
       max-width: 580px;
       margin-bottom: clamp(48px, 6vw, 72px);
     }
-    .curated-intro p { color: var(--stone-light); margin-top: 1.25rem; font-weight: 300; }
+    .curated-intro p { color: var(--stone); margin-top: 1.25rem; font-weight: 300; }
 
     .curated-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1px;
-      background: var(--border-dark);
+      background: var(--border-light);
     }
     @media (min-width: 640px) {
       .curated-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1062,14 +1069,14 @@
     }
 
     .curated-item {
-      background: var(--charcoal);
+      background: var(--page-bg);
       padding: 32px 28px;
       display: flex;
       flex-direction: column;
       gap: 16px;
       transition: background var(--transition);
     }
-    .curated-item:hover { background: var(--warm-dark); }
+    .curated-item:hover { background: var(--section-alt); }
     .curated-category {
       font-family: var(--body-font);
       font-size: 0.65rem;
@@ -1082,7 +1089,7 @@
       font-family: var(--heading-font);
       font-size: 1.2rem;
       font-weight: 400;
-      color: var(--off-white);
+      color: var(--charcoal);
       line-height: 1.3;
     }
     .curated-desc {
@@ -1097,7 +1104,7 @@
        CONTACT SECTION
     ═══════════════════════════════════════════════════ */
     #contact {
-      background: var(--warm-white);
+      background: var(--page-bg);
       color: var(--charcoal);
       padding: clamp(80px, 10vw, 140px) 0;
     }
@@ -1387,7 +1394,7 @@
     <div class="container header-inner">
 
       <a href="#" class="site-logo" aria-label="עמוד הבית">
-        <span class="logo-name">עתי מאלב</span>
+        <span class="logo-name">אתי מהלב</span>
         <span class="logo-sub">אדריכלות ועיצוב פנים</span>
       </a>
 
@@ -1418,7 +1425,7 @@
   <nav class="nav-drawer" id="nav-drawer" aria-label="תפריט ניייד" aria-hidden="true">
     <div class="drawer-header">
       <div class="site-logo">
-        <span class="logo-name">עתי מאלב</span>
+        <span class="logo-name">אתי מהלב</span>
         <span class="logo-sub">אדריכלות ועיצוב פנים</span>
       </div>
       <button class="drawer-close" id="drawer-close" aria-label="סגור תפריט">&#x2715;</button>
@@ -1493,7 +1500,7 @@
           <h2 id="about-heading">דיוק הוא לא רק מקצוע. הוא שפה.</h2>
           <div class="section-divider-gold"></div>
           <p class="about-bio">
-            עתי מאלב היא אדריכלית ומעצבת פנים בוגרת הטכניון, הפועלת בחיפה והסביבה מזה שנים רבות.
+            אתי מהלב היא אדריכלית ומעצבת פנים בוגרת הטכניון, הפועלת בחיפה והסביבה מזה שנים רבות.
             גישתה לכל פרויקט נולדת מהאמונה שתכנון נכון משנה חיים: לא רק את הנראות של הבית,
             אלא את התחושה שבו. כל פרטל הוא מכוון, כל חומר נבחר, כל פרט מחושב.
           </p>
@@ -1535,7 +1542,7 @@
         </div>
 
         <div class="about-visual scale-in">
-          <img src="assets/facade-stone.jpg" alt="עתי מאלב - אדריכלות ועיצוב פנים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+          <img src="assets/facade-stone.jpg" alt="אתי מהלב - אדריכלות ועיצוב פנים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
         </div>
 
       </div>
@@ -1620,7 +1627,7 @@
           <img src="assets/bathroom-spa.jpg" alt="Abita Kitchens - עיצוב אמבטיה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
-          <h3 class="project-name">Abita Kitchens × עתי מאלב</h3>
+          <h3 class="project-name">Abita Kitchens × אתי מהלב</h3>
           <p class="project-meta">שיתוף פעולה · 2024</p>
         </div>
       </article>
@@ -1833,7 +1840,7 @@
           <div class="section-divider-gold"></div>
           <p>
             EDNE Group היא חברת עיצוב ואדריכלות יוקרה בעלת שם בינלאומי, הפועלת מארצות הברית.
-            בשנים האחרונות מתקיים שיתוף פעולה ישיר ובלעדי בין עתי מאלב ל-EDNE Group,
+            בשנים האחרונות מתקיים שיתוף פעולה ישיר ובלעדי בין אתי מהלב ל-EDNE Group,
             המעניק ללקוחות בחיפה והסביבה גישה לעולם עיצובי בינלאומי.
           </p>
           <p>
@@ -1989,7 +1996,7 @@
 
         <div class="footer-brand">
           <a href="#" class="site-logo" aria-label="עמוד הבית">
-            <span class="logo-name">עתי מאלב</span>
+            <span class="logo-name">אתי מהלב</span>
             <span class="logo-sub">אדריכלות ועיצוב פנים</span>
           </a>
           <p class="footer-tagline">תכנון מדויק. חומרים נבחרים. ביצוע ללא פשרות. חיפה והסביבה.</p>
@@ -2028,7 +2035,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-legal">כל הזכויות שמורות לעתי מאלב © 2026</p>
+        <p class="footer-legal">כל הזכויות שמורות לאתי מהלב © 2026</p>
         <p class="footer-unveiled">בניה: <a href="https://unveiled.pro" rel="noopener noreferrer" target="_blank">UNVEILED</a></p>
       </div>
     </div>
