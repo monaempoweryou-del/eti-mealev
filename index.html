@@ -183,13 +183,14 @@
       height: var(--header-h);
       display: flex;
       align-items: center;
-      transition: background var(--transition), backdrop-filter var(--transition);
-    }
-    #site-header.scrolled {
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--border-light);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow var(--transition);
+    }
+    #site-header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
     }
     .header-inner {
       display: flex;
@@ -374,115 +375,110 @@
     /* ═══════════════════════════════════════════════════
        HERO SECTION
     ═══════════════════════════════════════════════════ */
+    /* ── HERO: Split layout ── */
     #hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: flex-end;
+      background: var(--page-bg);
+      padding-top: var(--header-h);
+    }
+    .hero-split {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      min-height: clamp(480px, 70vw, 720px);
+    }
+    /* RTL: columns are image-left, text-right */
+    .hero-split-image {
       overflow: hidden;
-      background: var(--charcoal-alt);
     }
-
-    /* Hero photo background */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: #141414;
-    }
-    .hero-bg img {
+    .hero-split-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center;
       display: block;
     }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(10,8,6,0.45) 0%, rgba(10,8,6,0.2) 40%, rgba(10,8,6,0.82) 100%);
-    }
-
-    /* Subtle architectural line texture */
-    .hero-texture {
-      display: none;
-    }
-
-    /* Glowing accent dot */
-    .hero-glow {
-      display: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding-top: calc(var(--header-h) + 60px);
-      padding-bottom: clamp(60px, 8vw, 100px);
-    }
-
-    .hero-content {
-      max-width: 820px;
+    .hero-split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 6vw, 80px) clamp(32px, 5vw, 72px);
+      background: var(--page-bg);
     }
 
     .hero-eyebrow {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 2rem;
+      gap: 14px;
+      margin-bottom: 1.6rem;
       opacity: 0;
     }
     .hero-eyebrow-line {
       display: block;
-      width: 40px;
+      width: 32px;
       height: 1px;
-      background: rgba(255,255,255,0.5);
+      background: var(--charcoal);
+      opacity: 0.4;
     }
     .hero-eyebrow-text {
       font-family: var(--body-font);
-      font-size: 0.72rem;
-      font-weight: 300;
+      font-size: 0.7rem;
+      font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
+      color: var(--stone);
     }
 
     .hero-title {
-      color: var(--off-white);
-      margin-bottom: 1.5rem;
+      font-family: var(--heading-font);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
     }
     .hero-title-accent {
       display: block;
       font-weight: 300;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      color: var(--stone-light);
-      letter-spacing: 0.08em;
-      margin-top: 0.5rem;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      color: var(--stone);
+      letter-spacing: 0.06em;
+      margin-top: 0.4rem;
     }
 
     .hero-sub {
       font-family: var(--body-font);
-      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
       font-weight: 300;
-      color: var(--stone-light);
-      max-width: 520px;
-      line-height: 1.85;
-      margin-bottom: 2.5rem;
+      color: var(--stone);
+      line-height: 1.9;
+      margin-bottom: 2.4rem;
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(20px);
     }
 
     .hero-cta-group {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 16px;
       flex-wrap: wrap;
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(16px);
     }
+
+    /* Mobile: stack image on top, text below */
+    @media (max-width: 767px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        grid-template-rows: clamp(260px, 75vw, 420px) auto;
+        min-height: unset;
+      }
+      .hero-split-image { order: 1; }
+      .hero-split-text  { order: 2; }
+    }
+
+    /* Legacy classes kept for JS animations */
+    .hero-bg, .hero-texture, .hero-glow, .hero-inner, .hero-scroll-indicator { display: none; }
 
     .btn-primary {
       display: inline-flex;
@@ -506,8 +502,8 @@
       font-family: var(--body-font);
       font-size: 0.85rem;
       font-weight: 500;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.65);
+      color: var(--charcoal);
+      border: 1px solid rgba(28,28,28,0.5);
       padding: 15px 36px;
       letter-spacing: 0.08em;
       display: inline-flex;
@@ -516,16 +512,6 @@
       transition: background var(--transition), border-color var(--transition), color var(--transition);
     }
     .btn-ghost-link:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.9);
-    }
-    /* On light backgrounds (about section etc.) ghost links become dark-outlined */
-    .about-text .btn-ghost-link,
-    section:not(#hero) .btn-ghost-link {
-      color: var(--charcoal);
-      border-color: rgba(28,28,28,0.55);
-    }
-    section:not(#hero) .btn-ghost-link:hover {
       background: var(--charcoal);
       color: #ffffff;
       border-color: var(--charcoal);
@@ -1461,13 +1447,13 @@
        HERO
   ════════════════════════════════════════ -->
   <section id="hero" aria-label="כותרת ראשית">
-    <div class="hero-bg">
-      <img src="assets/IMG_9907.jpg" alt="אדריכלות יוקרה" loading="eager" fetchpriority="high" />
-    </div>
+    <div class="hero-split">
 
-    <div class="container hero-inner">
-      <div class="hero-content">
+      <div class="hero-split-image">
+        <img src="assets/IMG_9905.jpg" alt="עיצוב פנים יוקרה" loading="eager" fetchpriority="high" />
+      </div>
 
+      <div class="hero-split-text">
         <div class="hero-eyebrow" id="hero-eyebrow">
           <span class="hero-eyebrow-line" aria-hidden="true"></span>
           <span class="hero-eyebrow-text">חיפה, ישראל</span>
@@ -1489,18 +1475,10 @@
           </a>
           <a href="#projects" class="btn-ghost-link">
             צפו בפרויקטים
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </a>
         </div>
-
       </div>
-    </div>
 
-    <div class="hero-scroll-indicator" aria-hidden="true">
-      <span class="scroll-label">גלול</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
