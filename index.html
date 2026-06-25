@@ -380,39 +380,35 @@
       background: var(--charcoal-alt);
     }
 
-    /* Architectural grid overlay */
+    /* Hero photo background */
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to bottom, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0.1) 40%, rgba(20,20,20,0.85) 100%),
-        linear-gradient(135deg, #0d0d0d 0%, #1a1710 30%, #1c1c18 60%, #0d0d0d 100%);
       z-index: 0;
+      background: #141414;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,8,6,0.45) 0%, rgba(10,8,6,0.2) 40%, rgba(10,8,6,0.82) 100%);
     }
 
     /* Subtle architectural line texture */
     .hero-texture {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background-image:
-        linear-gradient(rgba(184,151,90,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,151,90,0.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      pointer-events: none;
+      display: none;
     }
 
     /* Glowing accent dot */
     .hero-glow {
-      position: absolute;
-      top: 20%;
-      left: 30%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(184,151,90,0.07) 0%, transparent 70%);
-      z-index: 1;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-inner {
@@ -747,49 +743,19 @@
       transform: scale(1.04);
     }
 
-    /* Unique gradient per project */
-    .proj-1 { background: linear-gradient(145deg, #1c1814 0%, #2d2418 60%, #1a1410 100%); }
-    .proj-2 { background: linear-gradient(145deg, #181c1c 0%, #20282a 60%, #141c1c 100%); }
-    .proj-3 { background: linear-gradient(145deg, #1c1a14 0%, #2d2a1c 60%, #1a1810 100%); }
-    .proj-4 { background: linear-gradient(145deg, #181418 0%, #251c25 60%, #141014 100%); }
-    .proj-5 { background: linear-gradient(145deg, #141818 0%, #1c2424 60%, #101818 100%); }
-    .proj-6 { background: linear-gradient(145deg, #1c1c18 0%, #2a2a20 60%, #181814 100%); }
-    .proj-7 { background: linear-gradient(145deg, #141414 0%, #201c18 60%, #101010 100%); }
-    .proj-8 { background: linear-gradient(145deg, #181414 0%, #241c1c 60%, #141010 100%); }
-    .proj-9 { background: linear-gradient(145deg, #141c18 0%, #1c2820 60%, #101810 100%); }
-
-    .project-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(184,151,90,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,151,90,0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    .project-placeholder-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-    }
-    .project-placeholder-icon {
-      font-family: var(--heading-font);
-      font-size: 3rem;
-      font-weight: 300;
-      color: rgba(184,151,90,0.25);
-      line-height: 1;
+    /* Project image fills card */
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
       display: block;
-      margin-bottom: 16px;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .project-placeholder-label {
-      font-family: var(--body-font);
-      font-size: 0.65rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      color: rgba(184,151,90,0.4);
-      text-transform: uppercase;
+    .project-card:hover .project-img { transform: scale(1.04); }
+
+    .proj-1,.proj-2,.proj-3,.proj-4,.proj-5,.proj-6,.proj-7,.proj-8,.proj-9 {
+      background: #141414;
     }
 
     /* Hover overlay */
@@ -1040,55 +1006,33 @@
     .edne-visual {
       position: relative;
       aspect-ratio: 4/3;
-      background: linear-gradient(145deg, #1c1810 0%, #2d2418 50%, #1c1c14 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
-    .edne-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(184,151,90,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,151,90,0.06) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-    .edne-visual-text {
+
+    /* Full-width photo break */
+    .photo-break {
+      width: 100%;
+      height: clamp(260px, 40vw, 560px);
+      overflow: hidden;
       position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
     }
-    .edne-logo-text {
-      font-family: var(--heading-font);
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 300;
-      color: var(--off-white);
-      letter-spacing: 0.12em;
+    .photo-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
       display: block;
     }
-    .edne-logo-sub {
-      font-family: var(--body-font);
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.22em;
-      color: var(--gold);
-      text-transform: uppercase;
-      display: block;
-      margin-top: 8px;
-    }
-    /* corner accents */
-    .edne-visual::after {
-      content: '';
+    .photo-break-caption {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border-top: 1px solid var(--gold);
-      border-right: 1px solid var(--gold);
+      bottom: 28px;
+      right: 40px;
+      font-family: var(--body-font);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
     }
 
     /* ═══════════════════════════════════════════════════
@@ -1494,9 +1438,9 @@
        HERO
   ════════════════════════════════════════ -->
   <section id="hero" aria-label="כותרת ראשית">
-    <div class="hero-bg"></div>
-    <div class="hero-texture" aria-hidden="true"></div>
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-bg">
+      <img src="assets/hero-main.jpg" alt="אדריכלות יוקרה" loading="eager" fetchpriority="high" />
+    </div>
 
     <div class="container hero-inner">
       <div class="hero-content">
@@ -1591,12 +1535,7 @@
         </div>
 
         <div class="about-visual scale-in">
-          <div class="about-photo-placeholder">
-            <div class="about-photo-inner">
-              <span class="about-photo-name">עתי מאלב</span>
-              <span class="about-photo-caption">אדריכלות ועיצוב פנים</span>
-            </div>
-          </div>
+          <img src="assets/facade-stone.jpg" alt="עתי מאלב - אדריכלות ועיצוב פנים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
         </div>
 
       </div>
@@ -1618,10 +1557,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט קיסריה">
         <div class="project-placeholder proj-1">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">I</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/living-room-luxury.jpg" alt="פרויקט קיסריה - סלון יוקרה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט קיסריה</h3>
@@ -1631,10 +1567,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט גבעת הרקפות">
         <div class="project-placeholder proj-2">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">II</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/bedroom-suite.jpg" alt="פרויקט גבעת הרקפות - חדר שינה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט גבעת הרקפות</h3>
@@ -1644,10 +1577,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט מרואה חיפה">
         <div class="project-placeholder proj-3">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">III</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/kitchen-modern.jpg" alt="פרויקט מרואה - מטבח מודרני" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט מרואה</h3>
@@ -1657,10 +1587,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט חנה ומיכה">
         <div class="project-placeholder proj-4">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">IV</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/dining-room.jpg" alt="פרויקט חנה ומיכה - חדר אוכל" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט חנה ומיכה</h3>
@@ -1670,10 +1597,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט לינה">
         <div class="project-placeholder proj-5">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">V</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/terrace-view.jpg" alt="פרויקט לינה - גג ומרפסת" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט לינה</h3>
@@ -1683,10 +1607,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט Dr Lui">
         <div class="project-placeholder proj-6">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">VI</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/corridor-arch.jpg" alt="פרויקט Dr Lui - מסדרון" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט Dr'Lui</h3>
@@ -1696,10 +1617,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="שיתוף פעולה Abita Kitchens">
         <div class="project-placeholder proj-7">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">VII</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/bathroom-spa.jpg" alt="Abita Kitchens - עיצוב אמבטיה" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">Abita Kitchens × עתי מאלב</h3>
@@ -1709,10 +1627,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט אחסון חכם">
         <div class="project-placeholder proj-8">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">VIII</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/detail-staircase.jpg" alt="פרויקט אחסון חכם - מדרגות" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">אחסון חכם</h3>
@@ -1722,10 +1637,7 @@
 
       <article class="project-card scale-in" role="listitem" aria-label="פרויקט סלון">
         <div class="project-placeholder proj-9">
-          <div class="project-placeholder-inner">
-            <span class="project-placeholder-icon" aria-hidden="true">IX</span>
-            <span class="project-placeholder-label">תמונה בקרוב</span>
-          </div>
+          <img src="assets/lounge-dark.jpg" alt="פרויקט חיפה - סלון" loading="lazy" class="project-img" />
         </div>
         <div class="project-overlay">
           <h3 class="project-name">פרויקט חיפה</h3>
@@ -1783,6 +1695,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Photo Break -->
+  <div class="photo-break" aria-hidden="true">
+    <img src="assets/lounge-dark.jpg" alt="" loading="lazy" />
+    <span class="photo-break-caption">עיצוב פנים · חיפה</span>
+  </div>
 
   <!-- ════════════════════════════════════════
        PACKAGES
@@ -1932,10 +1850,7 @@
         </div>
 
         <div class="edne-visual scale-in">
-          <div class="edne-visual-text">
-            <span class="edne-logo-text">EDNE GROUP</span>
-            <span class="edne-logo-sub">Israeli Design Partner</span>
-          </div>
+          <img src="assets/exterior-villa.jpg" alt="EDNE Group - עיצוב יוקרה בינלאומי" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
         </div>
 
       </div>
